@@ -47,7 +47,9 @@ export default {
         formData() {
             return this.flatten
                 .reduce((object, field) => {
-                    object[field.name] = field.value;
+                    if(field.value) {
+                        object[field.name] = field.value;
+                    }
                     return object;
                 }, { _params: this.params });
         },
